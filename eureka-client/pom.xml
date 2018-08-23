@@ -3,12 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.demo.springcloud.mj</groupId>
-    <artifactId>eureka-server</artifactId>
+    <groupId>com.mj.demo</groupId>
+    <artifactId>eureka-client</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>eureka-server</name>
+    <name>eureka-client</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
@@ -32,8 +32,22 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>1.5.14.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <version>1.4.5.RELEASE</version>
+            <type>pom</type>
         </dependency>
 
 
@@ -43,12 +57,7 @@
             <artifactId>spring-cloud-dependencies</artifactId>
             <version>Dalston.SR5</version>
             <type>pom</type>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka-server</artifactId>
-            <version>1.4.2.RELEASE</version>
+            <scope>import</scope>
         </dependency>
     </dependencies>
 
