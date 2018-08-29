@@ -1,4 +1,4 @@
-package com.mj.demo.eurekaclient;
+package com.mj.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
