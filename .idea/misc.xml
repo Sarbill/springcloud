@@ -11,6 +11,8 @@
         <option value="$PROJECT_DIR$/consul/pom.xml" />
         <option value="$PROJECT_DIR$/eureka-customer/pom.xml" />
         <option value="$PROJECT_DIR$/eureka-client1/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka-customer-feign/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka-customer-hystrix/pom.xml" />
       </list>
     </option>
   </component>

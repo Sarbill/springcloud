@@ -14,6 +14,7 @@
     <module>eureka-client</module>
     <module>eureka-client1</module>
     <module>eureka-customer</module>
+    <module>eureka-customer-hystrix</module>
     <module>consul</module>
 </modules>
 </project>
