@@ -6,6 +6,7 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -18,10 +19,10 @@ public class Customer {
 
 
 
-    @GetMapping("/testClient")
-    public String testClient() {
+    @GetMapping("/testClient/{word}")
+    public String testClient(@PathVariable String word) {
 
-        String result = consumerService.consumer();
+        String result = consumerService.consumer(word);
 
         System.out.println(result);
         return result;
@@ -37,16 +38,16 @@ public class Customer {
         LoadBalancerClient loadBalancerClient;
 
         @HystrixCommand(fallbackMethod = "failCallBack")
-        public String consumer() {
+        public String consumer(String word) {
             ServiceInstance serviceInstance = loadBalancerClient.choose("eureka-client");
-            String result = restTemplate.getForObject("http://"+serviceInstance.getHost()+":"+serviceInstance.getPort()+"/eureka-client/test/sayClient", String.class);
+            String result = restTemplate.getForObject("http://"+serviceInstance.getHost()+":"+serviceInstance.getPort()+"/eureka-client/test/sayClient/{word}", String.class,word);
             System.out.println("customer result:"+result);
             System.out.println("customer body result:"+result);
             return result;
         }
 
-        public String failCallBack() {
-            System.out.println("call back fail");
+        public String failCallBack(String word) {
+            System.out.println("call back fail:"+word);
 
             return "call back fail";
         }

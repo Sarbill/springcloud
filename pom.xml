@@ -16,5 +16,7 @@
     <module>eureka-customer</module>
     <module>eureka-customer-hystrix</module>
     <module>consul</module>
+    <module>hystrix-dashboard</module>
+
 </modules>
 </project>
